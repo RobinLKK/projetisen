@@ -1,5 +1,13 @@
 <!-- web/pages/login.php -->
 <!DOCTYPE html>
+<?php
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    $httpsUrl = "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header("Location: $httpsUrl");
+    exit;
+}
+?>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +26,7 @@
         }
         ?>
         
-        <form method="POST" action="../actions/process_login.php">
+        <form method="POST" action="https://rob1.eu/web/actions/process_login.php">
             <label for="identifier">Nom d'utilisateur / e-mail<span class="required">*</span> :</label>
             <input type="text" name="identifier" id="identifier" required>
 

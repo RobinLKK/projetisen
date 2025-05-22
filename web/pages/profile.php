@@ -12,6 +12,13 @@ $user_id = $_SESSION['user_id'];
 $user = getUserProfile($pdo, $user_id);
 
 ?>
+<?php
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') {
+    $httpsUrl = "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header("Location: $httpsUrl");
+    exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
