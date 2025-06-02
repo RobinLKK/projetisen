@@ -10,10 +10,10 @@
     <meta name="author" content="rob1.lkk">
 </head>
 <body>
-<div id="welcome-screen">
+<!-- <div id="welcome-screen">
     <h1>Welcome</h1>
     <p id="press-key">Press any key or click to continue</p>
-</div>
+</div> -->
 
 <div id="bg-gif"></div>
 <div class="profile-wrapper">
@@ -50,7 +50,7 @@
 </audio>
 
 <script src="js/main.js"></script>
-<script src="js/welcome.js"></script>
+<!-- <script src="js/welcome.js"></script> -->
 <script src="js/audio.js"></script>
 <script src="js/description.js"></script>
 
