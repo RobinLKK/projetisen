@@ -2,8 +2,12 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>rob1.lkk</title>
+    <title>R</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de Rob1, étudiant développeur">
+    <meta name="author" content="rob1.lkk">
 </head>
 <body>
 <div id="welcome-screen">
@@ -41,6 +45,40 @@
 <script src="JS/welcome.js"></script>
 <script src="JS/main.js"></script>
 <script src="JS/music.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const fullTitle = "R o b 1 |";
+    let i = 0;
+    let adding = true;
+
+    function updateTitle() {
+        if (adding) {
+            document.title = fullTitle.slice(0, i + 1);
+            i++;
+            if (i === fullTitle.length) {
+                adding = false;
+                setTimeout(updateTitle, 1000); // pause avant d'effacer
+                return;
+            }
+        } else {
+            document.title = fullTitle.slice(0, i - 1);
+            i--;
+            if (i === 0) {
+                adding = true;
+                document.title = "_ "; // ou "_" si tu veux un effet visuel
+                setTimeout(updateTitle, 1000); // pause avant de recommencer
+                return;
+            }
+        }
+        setTimeout(updateTitle, 325); // vitesse ajustée
+    }
+
+    updateTitle();
+});
+
+</script>
+
 
 </body>
 </html>
