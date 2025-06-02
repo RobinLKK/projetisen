@@ -20,8 +20,15 @@
   <div class="profile-container">
     <div class="light"></div>
     <img class="avatar" src="media/aomine.jpg" alt="Avatar rob1">
-    <h1>rob1.lkk</h1>
-    <p class="tagline">Un jour j'irai sur Saturn</p>
+    <h1 class="username">
+    rob1.lkk
+    <span class="badge">
+        <img src="https://i.postimg.cc/g2n10FHt/badge-dev.png" alt="Dev badge">
+        <span>Developer</span>
+    </span>
+    </h1>
+
+<p class="tagline typewriter-glow" id="dynamic-desc"> </p>
     <div class="socials">
         <a href="https://discord.com/users/rob1.lkk" target="_blank" title="Discord">
             <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
@@ -45,6 +52,7 @@
 <script src="js/main.js"></script>
 <script src="js/welcome.js"></script>
 <script src="js/audio.js"></script>
+<script src="js/description.js"></script>
 
 
 <script>

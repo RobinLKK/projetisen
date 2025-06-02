@@ -253,3 +253,38 @@ h1 {
     border-radius: inherit;
     z-index: 0;
 }
+
+
+.username {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.badge {
+  background: rgba(255,255,255,0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.4em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 8px rgba(255,255,255,0.15);
+}
+.badge img {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 0 2px white);
+}
+
+
+.typewriter-glow {
+  font-style: italic;
+  color: #fff;
+  text-shadow: 0 0 8px #00f2ff, 0 0 12px #00f2ff;
+  font-size: 1.1em;
+}

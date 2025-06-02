@@ -47,7 +47,7 @@
 </head>
 <body>
     <h1>Choisissez un projet</h1>
-    <a class="btn" href="MSD/">Aller vers MSD</a>
-    <a class="btn" href="Rob1/">Aller vers Rob1</a>
+    <a class="btn" href="MSD/">Aller sur MSD</a>
+    <a class="btn" href="Rob1/">Aller sur Rob1</a>
 </body>
 </html>
