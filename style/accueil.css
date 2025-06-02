@@ -1,0 +1,343 @@
+/* ---------------------- accueil --------------------------- */
+
+.contenu {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  margin: auto;
+  overflow: hidden; /* evite les débordements */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.msd {
+  color: white;
+  font-size: 10vh;
+  font-family: Brigends;
+  letter-spacing: 5px;
+}
+
+.bienvenue {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+#helloP {
+  color: white;
+  font-size: 2vh;
+  font-family: Brigends;
+  letter-spacing: 2px;
+}
+
+.infos {
+  margin: 50px;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  font-size: 2vh;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+.infos:hover {
+  transform: scale(1.1);
+}
+
+.contenu .texte p {
+  color: white;
+}
+
+.conteneur-complet {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteneur-bio {
+  position: relative;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  max-width: 1000px;
+  display: grid;
+  grid-template-areas:
+    "image question question"
+    "image texte texte";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 1fr;
+  border: 1px solid rgb(117, 117, 117); /* bordure tempo pour voir */
+  margin: 20px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.575);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.question {
+  grid-area: question;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin: 20px;
+}
+
+.question h2 {
+  color: white;
+  font-size: 40px;
+}
+
+.texte {
+  grid-area: texte;
+  display: flex;
+  margin: 10px;
+  font-size: calc(0.5em + 1vw);
+  overflow: visible;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.image {
+  grid-area: image;
+  display: flex;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image img {
+  height: 25vh;
+  width: 25vh;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.discographie {
+  height: 100vh;
+  width: 100%;
+}
+
+/* ---------- responsive ---------- */
+/* pour ordi */
+@media only screen and (min-width: 700px) {
+}
+
+/* pour tel */
+@media only screen and (max-width: 700px) {
+  .conteneur-bio {
+    width: 100%;
+    height: 90%;
+    grid-template-areas:
+      "question"
+      "texte"
+      "image";
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 50% 40%;
+    margin: 10px;
+    overflow: auto;
+  }
+
+  .texte {
+    padding: 10px;
+    font-size: calc(1em + 1vw);
+  }
+
+  .contenu {
+    padding: 10px;
+  }
+
+  .image img {
+    height: 25vh;
+    width: 25vh;
+  }
+
+  .conteneur-bio .question h2 {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .conteneur-bio .texte {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: justify;
+    padding: 0 0.5rem;
+  }
+}
+
+/* discographie */
+
+.conteneur-discographie {
+  max-width: 1200px;
+  margin: 50px auto;
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 50px;
+  font-family: Brigends;
+  letter-spacing: 2px;
+}
+
+.discographie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 30px;
+  margin: 20px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.575);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.item {
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  border: 2px solid rgba(255, 255, 255, 0.575);
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.item p {
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.575);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+  background-color: #000000aa;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 32px;
+  color: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-layout {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
+}
+
+.modal-layout .modal-info {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-info h2 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-size: 28px;
+  border-bottom: 2px solid rgb(255, 238, 0);
+  padding-bottom: 10px;
+}
+
+.modal-info .description {
+  color: #e7e7e7;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .discographie-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .modal-layout {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .modal-layout .agauche img {
+    max-width: 250px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .discographie-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

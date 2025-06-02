@@ -1,0 +1,44 @@
+.profile-form {
+  background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent comme la page de connexion */
+  border-radius: 10px; /* Coins arrondis */
+  padding: 20px; /* Espacement interne */
+  width: 500px; /* Largeur fixe */
+  margin: 0 auto; /* Centrage horizontal */
+  text-align: center; /* Centrage du texte */
+  color: #fff; /* Couleur du texte en blanc pour lisibilité */
+  border: 1px solid #fff; /* Ajout d'une bordure visible */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Ombre légère pour mise en valeur */
+}
+
+.profile-form label {
+  display: block; /* Chaque label sur une nouvelle ligne */
+  margin-bottom: 5px; /* Espacement sous les labels */
+  color: #fff; /* Couleur du texte des labels */
+  text-align: left; /* Alignement à gauche pour les labels */
+}
+
+.profile-form input {
+  width: 100%; /* Largeur pleine dans la boîte */
+  padding: 10px; /* Espacement interne des champs */
+  margin-bottom: 10px; /* Espacement entre les champs */
+  border: none; /* Pas de bordure sur les champs */
+  border-radius: 5px; /* Coins arrondis des champs */
+  background: #e0e0e0; /* Fond clair pour les champs */
+  color: #000; /* Texte noir dans les champs pour lisibilité */
+  box-sizing: border-box; /* Inclut padding dans la largeur */
+}
+
+.profile-form button[type="submit"] {
+  width: 100%; /* Largeur pleine pour le bouton */
+  padding: 10px; /* Espacement interne */
+  background: #ffd700; /* Couleur jaune comme la page de connexion */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Coins arrondis */
+  color: #000; /* Texte noir */
+  font-weight: bold; /* Texte en gras */
+  cursor: pointer; /* Curseur main au survol */
+}
+
+.profile-form button[type="submit"]:hover {
+  background: #e6c200; /* Changement de couleur au survol */
+}

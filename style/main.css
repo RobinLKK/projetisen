@@ -1,0 +1,244 @@
+/* definition d'une police personnalisee */
+@font-face {
+  font-family: Brigends;
+  src: url("../style/brigends.otf");
+}
+
+/* style global pour tous les elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* style pour html et body */
+html,
+body {
+  scroll-behavior: smooth;
+  background-color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* style pour une video en webm */
+.video-webm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* style pour un conteneur de fond */
+.fond {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* style pour une superposition */
+.overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* style pour un logo */
+.logo {
+  position: relative;
+  min-width: 50px;
+  max-width: 500px;
+  width: 50vw;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+/* effet au survol du logo */
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* style pour le pied de page */
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  font-size: 14px;
+}
+
+/* style pour le contenu du pied de page */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* style pour les liens dans le pied de page */
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* effet au survol des liens dans le pied de page */
+.footer a:hover {
+  color: rgb(255, 238, 0);
+}
+
+/* style pour les icones sociales */
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* style pour chaque icone sociale */
+.social-icon {
+  margin: 0 10px;
+}
+
+/* style pour le panier */
+#cart {
+  height: 100vh;
+  width: 30%;
+  margin-left: auto;
+  padding: 20px;
+  border: 0;
+  border-left: 1px solid rgba(27, 31, 35, 0.15);
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  display: block;
+  opacity: 0;
+  transform: translateX(100%);
+  background-color: transparent;
+}
+
+/* style pour le panier lorsqu'il est ouvert */
+#cart:popover-open {
+  opacity: 1;
+  transform: translateX(0px);
+  background-color: black;
+  color: white;
+}
+
+/* style pour un article dans le panier */
+.cart-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+/* style pour l'image de l'article dans le panier */
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+/* style pour les details de l'article */
+.item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+/* style pour les paragraphes des details de l'article */
+.item-details p {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+/* style pour la section de paiement */
+.checkout {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* style pour les paragraphes dans la section de paiement */
+.checkout p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* style pour le bouton de paiement */
+.checkout button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: 2px solid rgb(255, 238, 0);
+  cursor: pointer;
+}
+
+/* effet au survol du bouton de paiement */
+.checkout button:hover {
+  background-color: rgb(255, 238, 0);
+  color: black;
+}
+
+/* style pour les boutons generiques */
+.button {
+  background-color: transparent;
+  appearance: none;
+  border-radius: 15px;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 24px;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  border: none;
+}
+
+/* style pour le bouton de fermeture */
+.close-button {
+  padding: 12px 20px;
+  font-size: 36px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* effet au survol des boutons generiques */
+.button:hover {
+  transform: translateY(-2px);
+}
+
+/* effet lors du clic sur les boutons generiques */
+.button:active {
+  transform: translateY(0);
+}
+
+/* media queries pour les ecrans de plus de 600px */
+@media only screen and (min-width: 600px) {
+  /* ajouter des styles specifiques ici */
+}
+
+/* media queries pour les ecrans de moins de 600px */
+@media only screen and (max-width: 600px) {
+  /* faire que le panier s'ouvre sur toute la surface du tel */
+  #cart {
+    width: 100%;
+  }
+}

@@ -1,0 +1,444 @@
+html,
+body {
+  background-image: url("../media/bg.gif");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.conteneur-shop {
+  max-width: 800px;
+  margin: 50px auto;
+  margin-top: 10%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.item {
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.item p {
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.575);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+  background-color: #000000aa;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 32px;
+  color: #ff0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-layout {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
+}
+
+.modal-layout .agauche {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-layout .agauche img {
+  max-width: 300px;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-layout .modal-info {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-info h2 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-size: 28px;
+  border-bottom: 2px solid rgb(255, 238, 0);
+  padding-bottom: 10px;
+}
+
+.modal-info .description {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.modal-info .price {
+  font-size: 24px;
+  color: rgb(255, 238, 0);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.add-to-cart {
+  width: 200px;
+  height: 50px;
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+  font-weight: bold;
+  background: #333;
+  overflow: hidden;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-to-cart .button-text {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out;
+  color: white;
+}
+
+.add-to-cart .check-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.add-to-cart::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 12px;
+  background: linear-gradient(
+    45deg,
+    #fff800,
+    #ff7300,
+    #ff0000,
+    #ff7300,
+    #fff800
+  );
+  background-size: 600%;
+  z-index: -1;
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.add-to-cart:hover::before {
+  opacity: 1;
+}
+
+.add-to-cart:focus {
+  outline: none;
+  width: 50px;
+  height: 50px;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+}
+
+.add-to-cart:focus .button-text {
+  opacity: 0;
+}
+
+.add-to-cart:focus .check-icon {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.add-to-cart:focus::before {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.add-to-cart:focus {
+  animation: fade-out 2s ease-in-out 2s forwards;
+}
+
+.add-to-cart.reappear {
+  animation: reappear 2s ease-in-out forwards;
+  opacity: 1;
+  width: 200px;
+  height: 50px;
+  border-radius: 12px;
+  transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out,
+    height 0.5s ease-in-out;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .modal-layout {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .modal-layout .agauche img {
+    max-width: 250px;
+  }
+}
+
+/* .item:nth-child(1):hover img {
+  content: url("../media/merch/Teeshirt_noir_back.png");
+}
+
+.item:nth-child(2):hover img {
+  content: url("../media/merch/Teeshirt_b_back.png");
+}
+
+.item:nth-child(3):hover img {
+  content: url("../media/merch/Pull_noir_back.png");
+}
+
+.item:nth-child(4):hover img {
+  content: url("../media/merch/Pull_gris_back.png");
+}
+
+.item:nth-child(5):hover img {
+  content: url("../media/merch/affiche-normall.png");
+}
+
+.item:nth-child(6):hover img {
+  transition: transform 1s ease-in-out;
+  content: url("../media/merch/affiches-3.png");
+}
+
+.item:nth-child(7):hover img {
+  content: url("../media/merch/cd_ouvert.png");
+}
+
+.item:nth-child(8):hover img {
+  content: url("../media/merch/vinyl1h.png");
+} */
+
+.size-selector {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.size-option {
+  display: inline-block;
+  border: none;
+  color: white;
+  background-color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  position: relative;
+  z-index: 0;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.size-option::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.size-option::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #fff800,
+    #ff7300,
+    #ff0000,
+    #ff7300,
+    #fff800,
+    #ff7300,
+    #ff0000,
+    #fff800
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.size-option:hover::before {
+  opacity: 1;
+}
+
+input[type="radio"]:checked + .size-option {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  animation: pop-in 0.4s ease-in-out, glowing-pulse 1s infinite;
+}
+
+input[type="radio"]:checked + .size-option::before {
+  opacity: 1;
+}
+
+input[type="radio"]:checked + .size-option::after {
+  background-color: transparent;
+}
+
+.notif {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 128, 0, 0.9);
+    color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 2px solid #4CAF50;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out, fadeOut 1s ease-out 3s forwards;
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+        visibility: hidden;
+    }
+}
+.size-selector input[type="radio"] {
+    display: none;
+}
