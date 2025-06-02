@@ -2,66 +2,45 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Rob1</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            background: #0f0f0f;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff, 0 0 30px #00f2ff;
-            }
-            to {
-                text-shadow: 0 0 20px #00f2ff, 0 0 30px #00f2ff, 0 0 40px #00f2ff;
-            }
-        }
-
-        p {
-            font-size: 1.2em;
-            color: #aaa;
-            margin-bottom: 40px;
-        }
-
-        a {
-            padding: 12px 25px;
-            background: rgba(0, 242, 255, 0.1);
-            border: 1px solid #00f2ff;
-            border-radius: 8px;
-            color: #00f2ff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            background: #00f2ff;
-            color: #000;
-            box-shadow: 0 0 20px #00f2ff;
-        }
-    </style>
+    <title>rob1.lkk</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <h1>Rob1</h1>
-    <p>Site en cours de développement</p>
-<a href="#" onclick="alert('Discord : rob1.lkk'); return false;">Discord</a>
+<div id="welcome-screen">
+    <h1>Welcome</h1>
+    <p id="press-key">Press any key or click to continue</p>
+</div>
+
+<div id="bg-gif"></div>
+<div class="profile-wrapper">
+  <div class="profile-container">
+    <div class="light"></div>
+    <img class="avatar" src="media/aomine.jpg" alt="Avatar rob1">
+    <h1>rob1.lkk</h1>
+    <p class="tagline">Un jour j'irai sur Saturn</p>
+    <div class="socials">
+        <a href="https://discord.com/users/rob1.lkk" target="_blank" title="Discord">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
+        </a>
+        <a href="https://github.com/rob1" target="_blank" title="GitHub">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+        </a>
+        <a href="#" title="Spotify">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify">
+        </a>
+    </div>
+    <div class="views">👁 666 666</div>
+  </div>
+</div>
+
+<button id="toggle-music">🔊</button>
+<audio id="bg-music" loop>
+    <source src="media/khali.mp3" type="audio/mpeg">
+</audio>
+
+<script src="JS/welcome.js"></script>
+<script src="JS/main.js"></script>
+<script src="JS/music.js"></script>
+
 </body>
 </html>
