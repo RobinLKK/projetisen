@@ -30,10 +30,10 @@
 
 <p class="tagline typewriter-glow" id="dynamic-desc"> </p>
     <div class="socials">
-        <a href="https://discord.com/users/rob1.lkk" target="_blank" title="Discord">
+        <a href="#" target="_blank" title="Discord">
             <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
         </a>
-        <a href="https://github.com/rob1" target="_blank" title="GitHub">
+        <a href="#" target="_blank" title="GitHub">
             <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
         </a>
         <a href="#" title="Spotify">
