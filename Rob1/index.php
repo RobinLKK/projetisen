@@ -42,9 +42,10 @@
     <source src="media/khali.mp3" type="audio/mpeg">
 </audio>
 
-<script src="JS/welcome.js"></script>
-<script src="JS/main.js"></script>
-<script src="JS/music.js"></script>
+<script src="js/main.js"></script>
+<script src="js/welcome.js"></script>
+<script src="js/audio.js"></script>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
