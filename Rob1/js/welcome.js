@@ -1,38 +1,51 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("toggle-music");
+    const welcome = document.getElementById("welcome-screen");
 
-    // const music = document.getElementById("bg-music");
-    // const btn = document.getElementById("toggle-music");
-    // const welcome = document.getElementById("welcome-screen");
-    // let playing = false;
+    if (!music || !btn || !welcome) {
+        console.error("Un ou plusieurs éléments introuvables dans le DOM.");
+        return;
+    }
 
-    // function startExperience() {
-    //     welcome.classList.add("hidden");
+    let playing = false;
 
-    //     // Attendre la fin de l’animation avant de retirer le DOM
-    //     setTimeout(() => {
-    //         welcome.remove();
-    //     }, 1000);
+    function startExperience() {
+        // Cache l'écran de bienvenue
+        welcome.classList.add("hidden");
 
-    //     music.play().then(() => {
-    //         playing = true;
-    //         btn.textContent = "🔊";
-    //     }).catch(err => {
-    //         console.log("Erreur lecture :", err);
-    //     });
+        // Le retire complètement après 1s
+        setTimeout(() => {
+            welcome.remove();
+        }, 1000);
 
-    //     document.removeEventListener("click", startExperience);
-    //     document.removeEventListener("keydown", startExperience);
-    // }
+        // Lance la musique
+        music.play().then(() => {
+            playing = true;
+            btn.textContent = "🔊";
+        }).catch(err => {
+            console.warn("Lecture bloquée par le navigateur :", err);
+        });
 
-    // document.addEventListener("click", startExperience);
-    // document.addEventListener("keydown", startExperience);
+        // Retire les écouteurs après la première interaction
+        document.removeEventListener("click", startExperience);
+        document.removeEventListener("keydown", startExperience);
+    }
 
-    // btn.addEventListener("click", () => {
-    //     if (playing) {
-    //         music.pause();
-    //         btn.textContent = "🔇";
-    //     } else {
-    //         music.play();
-    //         btn.textContent = "🔊";
-    //     }
-    //     playing = !playing;
-    // });
+    document.addEventListener("click", startExperience);
+    document.addEventListener("keydown", startExperience);
+
+    // Bouton de mute / unmute
+    btn.addEventListener("click", () => {
+        if (playing) {
+            music.pause();
+            btn.textContent = "🔇";
+        } else {
+            music.play();
+            btn.textContent = "🔊";
+        }
+        playing = !playing;
+    });
+
+    console.log("welcome.js chargé avec succès.");
+});
