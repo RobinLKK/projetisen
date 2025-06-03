@@ -1,50 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("bg-music");
-    const btn = document.getElementById("toggle-music");
+    const volumeSlider = document.getElementById("volume-slider");
 
-    if (music && btn) {
-        let playing = false;
+    if (!music || !volumeSlider) return;
 
-        const toast = document.createElement("div");
-        toast.textContent = "🎵 Musique activée";
-        toast.id = "music-toast";
-        document.body.appendChild(toast);
+    // Volume initial
+    music.volume = parseFloat(volumeSlider.value);
 
-        function showToast() {
-            toast.classList.add("show");
-            setTimeout(() => toast.classList.remove("show"), 3000);
-        }
-
-        function playMusic() {
-            if (!playing) {
-                music.play().then(() => {
-                    playing = true;
-                    btn.textContent = "🔊";
-                    showToast();
-                }).catch((e) => {
-                    console.log("Lecture bloquée par le navigateur :", e);
-                });
-            }
-            document.removeEventListener("click", playMusic);
-            document.removeEventListener("keydown", playMusic);
-        }
-
-        document.addEventListener("click", playMusic);
-        document.addEventListener("keydown", playMusic);
-        music.muted = false;
-
-        btn.addEventListener("click", () => {
-            if (playing) {
-                music.pause();
-                btn.textContent = "🔇";
-            } else {
-                music.play();
-                btn.textContent = "🔊";
-                showToast();
-            }
-            playing = !playing;
+    // Lecture automatique au clic ou touche clavier
+    const startPlayback = () => {
+        music.play().catch((e) => {
+            console.warn("Lecture refusée :", e);
         });
-    }
+        document.removeEventListener("click", startPlayback);
+        document.removeEventListener("keydown", startPlayback);
+    };
+
+    document.addEventListener("click", startPlayback);
+    document.addEventListener("keydown", startPlayback);
+
+    // Réglage du volume
+    volumeSlider.addEventListener("input", () => {
+        music.volume = parseFloat(volumeSlider.value);
+    });
 });
-
-
