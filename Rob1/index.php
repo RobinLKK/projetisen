@@ -46,7 +46,7 @@
 
 <button id="toggle-music">🔊</button>
 <audio id="bg-music" loop>
-    <source src="media/khali.mp3" type="audio/mpeg">
+    <source src="media/Millenium.mp3" type="audio/mpeg">
 </audio>
 
 <script src="js/welcome.js" defer></script>
