@@ -45,9 +45,13 @@
 </div>
 
 <div id="volume-control">
-    <label for="volume-slider">🔊</label>
+  <button id="toggle-music">🔊</button>
+  <div id="volume-slider-wrapper">
     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+  </div>
 </div>
+
+
 
 <audio id="bg-music" loop>
     <source src="media/Millenium.mp3" type="audio/mpeg">

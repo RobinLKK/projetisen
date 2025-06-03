@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("bg-music");
     const volumeSlider = document.getElementById("volume-slider");
+    const sliderWrapper = document.getElementById("volume-slider-wrapper");
+    const btn = document.getElementById("toggle-music");
 
-    if (!music || !volumeSlider) return;
+    if (!music || !volumeSlider || !sliderWrapper || !btn) return;
 
-    // Volume initial
     music.volume = parseFloat(volumeSlider.value);
 
-    // Lecture automatique au clic ou touche clavier
     const startPlayback = () => {
         music.play().catch((e) => {
             console.warn("Lecture refusée :", e);
@@ -19,8 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", startPlayback);
     document.addEventListener("keydown", startPlayback);
 
-    // Réglage du volume
     volumeSlider.addEventListener("input", () => {
         music.volume = parseFloat(volumeSlider.value);
+    });
+
+    // Toggle visibilité du slider fluo
+    btn.addEventListener("click", () => {
+        sliderWrapper.classList.toggle("show");
     });
 });
