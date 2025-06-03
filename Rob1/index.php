@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dev">
+    <meta name="description" content="Site de Rob1, étudiant développeur">
     <meta name="author" content="rob1.lkk">
 </head>
 <body>
