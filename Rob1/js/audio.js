@@ -7,6 +7,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!music || !volumeSlider || !sliderWrapper || !btn) return;
 
     music.volume = parseFloat(volumeSlider.value);
+    let autoHideTimeout;
+
+    const updateIcon = () => {
+        btn.textContent = music.volume === 0 ? "🔇" : "🔊";
+    };
+
+    const showSlider = () => {
+        sliderWrapper.classList.add("show");
+        clearTimeout(autoHideTimeout);
+        autoHideTimeout = setTimeout(() => {
+            sliderWrapper.classList.remove("show");
+        }, 4000); // 4 secondes visibles
+    };
+
+    btn.addEventListener("click", () => {
+        showSlider();
+    });
+
+    volumeSlider.addEventListener("input", () => {
+        music.volume = parseFloat(volumeSlider.value);
+        updateIcon();
+        showSlider(); // prolonge la visibilité à chaque mouvement
+    });
 
     const startPlayback = () => {
         music.play().catch((e) => {
@@ -19,12 +42,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", startPlayback);
     document.addEventListener("keydown", startPlayback);
 
-    volumeSlider.addEventListener("input", () => {
-        music.volume = parseFloat(volumeSlider.value);
-    });
-
-    // Toggle visibilité du slider fluo
-    btn.addEventListener("click", () => {
-        sliderWrapper.classList.toggle("show");
-    });
+    updateIcon(); // pour l'état initial
 });
