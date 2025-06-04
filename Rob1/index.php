@@ -15,7 +15,14 @@
     <p id="press-key">Press any key or click to continue</p>
 </div>
 
-<div id="bg-gif"></div>
+<!-- <div id="bg-gif"></div> -->
+
+<video autoplay muted loop id="bg-video">
+    <source src="bg/cloud.mp4" type="video/mp4">
+</video>
+
+
+
 <div class="profile-wrapper">
   <div class="profile-container">
     <div class="light"></div>
