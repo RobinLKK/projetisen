@@ -16,7 +16,13 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     overflow: hidden;
+    position: relative; /* pour le pseudo-élément */
+
 }
+
+
+
+
 
 .page {
     width: 50%;
@@ -25,7 +31,7 @@ body {
 }
 
 .page.gauche {
-    border-right: 2px dashed #c49d79;
+    border-right: none; /* supprime la bordure décalante */
     font-family: 'Homemade Apple', cursive;
     font-size: 19px;
 }
