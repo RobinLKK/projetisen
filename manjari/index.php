@@ -196,8 +196,8 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
     text-align: center;
     margin: 20px auto;
     font-family: Arial, sans-serif;
-    color: #888888;
-    font-size: 13px;
+    color: orange;
+    font-size: 20px;
     letter-spacing: 0.05em;
     user-select: none;
 ">
