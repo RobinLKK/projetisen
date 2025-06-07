@@ -9,7 +9,15 @@ body {
 }
 
 .journal {
+    display: flex;
+    max-width: 1500px;
+    margin: 40px auto;
+    background: #fff3e6;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
     position: relative; /* pour le pseudo-élément */
+
 }
 
 
