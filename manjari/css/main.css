@@ -65,15 +65,20 @@ body {
     padding-left: 15px;
 }
 
+.page.droite {
+    padding-left: 30px; /* augmente un peu le padding à gauche */
+}
 
 .page.droite img,
 .page.droite video,
 .page.droite audio {
-    max-width: 100%; /* occupe tout l'espace à droite */
+    max-width: 90%; /* limite la largeur à 90% pour avoir un espace à droite */
+    margin-left: auto; /* pousse le média vers la droite */
     margin-bottom: 15px;
     border-radius: 8px;
     display: block;
 }
+
 
 
 .controls {
