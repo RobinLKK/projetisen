@@ -244,5 +244,5 @@ a {
 /* Optionnel : ajouter un effet au survol */
 a:hover {
   text-decoration: underline; /* soulignement au hover */
-  color: #eaa980;             /* ou une autre couleur */
+  color: orange;             /* ou une autre couleur */
 }
