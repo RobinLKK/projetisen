@@ -87,6 +87,10 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
 </head>
 <body>
+    <?php if ($userConnecte): ?>
+    <a href="logout.php" id="btn-logout" title="Se déconnecter">✖</a>
+<?php endif; ?>
+
 <div class="journal">
     <div class="page gauche">
         <h2>Jour <?= $jour ?> de Manjari Paswan</h2>
