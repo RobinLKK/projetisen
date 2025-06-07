@@ -11,7 +11,7 @@ $password   = "Robaxel1209";
 $database   = "robeuxw977";
 
 try {
-    $pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8", $username, $password);
+    $pdo = new PDO("mysql:host=$servername;dbname=$database;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     // ⛔ En cas d'erreur de connexion
