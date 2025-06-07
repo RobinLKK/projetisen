@@ -39,6 +39,27 @@ if (!in_array($jour, $jours_disponibles)) {
         die("Aucune page de journal n'existe encore.");
     }
 }
+$entry = null; // Initialisation sécurisée
+
+$entryKey = "jour_$jour";
+
+// Si le jour est dans le JSON
+if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
+    $entry = $data_json[$entryKey];
+
+// Sinon, on regarde dans la base de données
+} else {
+    $stmt = $pdo->prepare("SELECT id, texte FROM journal WHERE jour = ?");
+    $stmt->execute([$jour]);
+    $entry = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($entry) {
+        $stmt = $pdo->prepare("SELECT type, src FROM media WHERE journal_id = ?");
+        $stmt->execute([$entry['id']]);
+        $entry['media'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}
+
 
 ?>
 <!DOCTYPE html>
