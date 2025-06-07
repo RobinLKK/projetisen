@@ -76,25 +76,24 @@ body {
 
 .media-container {
     position: relative;
-    margin-bottom: 15px;
-}
-
-.media-container img,
-.media-container video,
-.media-container audio {
-    width: 100%;
-    border-radius: 8px;
 }
 
 .delete-button {
     position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #ff4b4b;
+    top: 5px;
+    right: 5px;
+    background: red;
     border: none;
-    border-radius: 50%;
     color: white;
-    font-size: 16px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-weight: bold;
     cursor: pointer;
-    padding: 4px 8px;
+    display: none;
 }
+
+.media-container:hover .delete-button {
+    display: block;
+}
+

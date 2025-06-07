@@ -5,18 +5,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['src'], $_POST['jour']
     $src = $_POST['src'];
     $jour = (int)$_POST['jour'];
 
-    // Supprimer le fichier physique s’il existe
-    $cheminFichier = "../" . $src; // car src = "media/jourX/nom.ext"
-    if (file_exists($cheminFichier)) {
-        unlink($cheminFichier);
+    // Supprime le fichier physique si existant
+    if (file_exists($src)) {
+        unlink($src);
     }
 
-    // Supprimer l’entrée en base
+    // Supprime de la base de données
     $stmt = $pdo->prepare("DELETE FROM media WHERE src = ?");
     $stmt->execute([$src]);
 
-    // Redirection vers le jour courant
     header("Location: ../index.php?jour=$jour");
     exit;
+} else {
+    echo "Erreur lors de la suppression.";
 }
 ?>
