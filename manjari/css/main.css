@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Shadows+Into+Light&display=swap');
 
+
+
+* {
+    box-sizing: border-box;
+}
+
+
 body {
     margin: 0;
     font-family: 'Shadows Into Light', cursive;
@@ -66,11 +73,10 @@ body {
 .page.droite img,
 .page.droite video,
 .page.droite audio {
-    max-width: 100%; /* permet d’utiliser toute la largeur disponible */
+    max-width: 85%; /* ne pas dépasser 90% de la largeur de la page droite */
     margin-bottom: 15px;
     border-radius: 8px;
     display: block;
-    /* Si tu veux centrer explicitement au cas où : */
     margin-left: auto;
     margin-right: auto;
 }
