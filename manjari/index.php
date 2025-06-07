@@ -96,7 +96,7 @@ $dernierJour = max(array_map(function($key) {
 
     <script src="js/main.js"></script>
 
-    <form id="form-ajout" action="traitement/ajouter_page.php" method="POST" enctype="multipart/form-data" style="display:none; text-align:center; margin-top:20px;">
+<form id="form-ajout" action="traitement/ajouter_page.php" method="POST" enctype="multipart/form-data">
     <h3>Nouvelle page de journal</h3>
     <textarea name="texte" rows="10" cols="60" placeholder="Écris ta nouvelle page ici...">Aujourd'hui...</textarea>
     
