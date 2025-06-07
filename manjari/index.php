@@ -26,7 +26,11 @@ $jours_bdd = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 // 6. Fusionner tous les jours disponibles
 $jours_disponibles = array_unique(array_merge($jours_json, $jours_bdd));
+sort($jours_disponibles);
+$jours_disponibles = array_map('intval', $jours_disponibles); // <- conversion en int
+
 $dernierJour = !empty($jours_disponibles) ? max($jours_disponibles) : 0;
+
 var_dump($jours_disponibles);
 var_dump($jour);
 var_dump($dernierJour);
