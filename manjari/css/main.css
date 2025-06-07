@@ -174,3 +174,25 @@ input[type="file"] {
     text-align: center;
     margin: 40px auto;
 }
+
+
+
+#bouton-modifier {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: #f2c6a0;
+    border: 1px solid #c49d79;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#bouton-modifier:hover {
+    background-color: #eaa980;
+    transform: scale(1.05);
+}

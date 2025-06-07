@@ -31,9 +31,6 @@ $jours_disponibles = array_map('intval', $jours_disponibles); // <- conversion e
 
 $dernierJour = !empty($jours_disponibles) ? max($jours_disponibles) : 0;
 
-var_dump($jours_disponibles);
-var_dump($jour);
-var_dump($dernierJour);
 
 sort($jours_disponibles);
 // 6bis. Déterminer le jour précédent et suivant
@@ -146,7 +143,7 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 <div class="edit-bar">
     <!-- Bouton Modifier --><!-- Boîte d’édition fixe en bas à droite -->
 <div class="edit-footer">
-    <button type="button" onclick="toggleEdition()">✏️ Modifier</button>
+    <button type="button" id="bouton-modifier" onclick="toggleEdition()">✏️ Modifier</button>
 </div>
 
 <!-- Ce qui s’affiche en mode édition -->
