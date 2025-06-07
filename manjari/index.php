@@ -192,9 +192,18 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 
 <script src="js/main.js"></script>
 
-<footer style="text-align:center; margin: 30px 0; font-family: 'Homemade Apple', cursive; color: #4b2e2e; font-size: 14px;">
+<footer style="
+    text-align: center;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: #888888;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    user-select: none;
+">
     Réalisé par Rob1 (dev) et Xam (texte)
 </footer>
+
 
 </body>
 </html>
