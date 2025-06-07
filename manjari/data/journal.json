@@ -1,16 +1,9 @@
 {
   "jour_1": {
-    "texte": "Jour 1 depuis ton départ🥺, aujourd’hui on a passé la journée ensemble c’était super🤩, on est allés au Paleto Diner manger un gros burger pour te redonner le sourire🍔, on a beaucoup parlé et tu m’as même avoué que ma sœur te plaisait🥰. Elle est arrivée juste après, c’était rigolo 🤣, t’as même cru que c’était moi qui avais envoyé la position. Quand on s’est tous rejoints à l’aéroport et que ton avion a décollé, je ne pensais pas qu’il allait se passer tout le reste… 😔 Je suis partie et j’ai entendu un gros boum 💥, je ne pensais pas que c’était ton avion.. ✈️ Quand j’ai vu l’annonce du Life et que j’ai lu que ton avion s’était crashé dans l’eau, tout s’est écroulé.. 😞 Pour me changer les idées je suis allée voir mon oncle, c’était cool, on a discuté de tout et de rien. ☺️ Après je suis allée voir mon meilleur copain Hugues qui m’a fait une musique pour s’excuser, c’est ma musique préférée maintenant. Quand je vais pas bien, je l’écoute et ça va mieux. 🕺🏼 Voilà, c’était ma journée. Tu me manques déjà, Carole.. ❤️",
+    "texte": "Jour 1 depuis ton depart🥺, aujourdui on a passer la journée ensemble cetait super🤩, on est aller au Paleto Diner manger un gros burger pour te redonner le sourire🍔, on a beaucoup parler et tu m’as meme avouer que ma soeur te plaisait🥰.\nElle est arriver juste apres cetait rigolo 🤣 , ta meme cru que cetait moi qui avait envoyer la pos.\nQuand on sait tous rejoin a laeroport et que ton avion a decoler je pensais pas kil aller se passer tout le reste… 😔\nJe suis parti et j’ai entendu un gros boum 💥, je ne pensais pas que cetait ton avion.. ✈️\nQuand j’ai vu lannonce du life et que j’ai lu que ton avion cetait cracher dans l’eau tout c ecrouler.. 😞\nPour me changer les idees je suis aller voir mon oncle cetait cool, on a discuté de tout et de rien. ☺️\nApres je suis aller voir mon meilleur copain Hugues qui m’a fait une musique pour s’excuser, c’est ma musique préférée mtn, quand je vais pas bien je lecoute et cava mieux. 🕺🏼\nVoila cetait ma journée, tu me manques deja Carole.. ❤️",
     "media": [
       { "type": "image", "src": "medias/jour1/vache-chapeau.jpg" },
       { "type": "audio", "src": "medias/jour1/mugissement.mp3" }
-    ]
-  },
-  "jour_2": {
-    "texte": "J’ai pété",
-    "media": [
-      { "type": "image", "src": "medias/jour2/dessin-ferme.jpg" },
-      { "type": "video", "src": "medias/jour2/mini-clip.mp4" }
     ]
   }
 }

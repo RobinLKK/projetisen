@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Shadows+Into+Light&display=swap');
 
 body {
     margin: 0;
@@ -10,7 +10,7 @@ body {
 
 .journal {
     display: flex;
-    max-width: 1000px;
+    max-width: 1500px;
     margin: 40px auto;
     background: #fff3e6;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -26,6 +26,9 @@ body {
 
 .page.gauche {
     border-right: 2px dashed #c49d79;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 19px;
+
 }
 
 .page.droite img,
@@ -55,4 +58,17 @@ body {
 
 .controls button:hover {
     background-color: #eaa980;
+}
+
+
+#media-upload {
+    border: 2px dashed #c49d79;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#media-upload.dragover {
+    background-color: #fff0d5;
 }
