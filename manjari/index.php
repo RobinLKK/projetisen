@@ -27,6 +27,10 @@ $jours_bdd = $stmt->fetchAll(PDO::FETCH_COLUMN);
 // 6. Fusionner tous les jours disponibles
 $jours_disponibles = array_unique(array_merge($jours_json, $jours_bdd));
 sort($jours_disponibles);
+// 6bis. Déterminer le jour précédent et suivant
+$indexActuel = array_search($jour, $jours_disponibles);
+$precedent = $jours_disponibles[$indexActuel - 1] ?? null;
+$suivant = $jours_disponibles[$indexActuel + 1] ?? null;
 
 // 7. Rediriger si le jour demandé n’existe pas
 if (!in_array($jour, $jours_disponibles)) {
