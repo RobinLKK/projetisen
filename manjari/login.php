@@ -37,17 +37,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php if ($error): ?>
 <p style="color:red"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
-</body>
+
 
 
 <style>
-    /* login.css */
+/* css/login.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 
 body {
   margin: 0;
-  background: #fff3e6;
+  background: linear-gradient(135deg, #fbc490, #f7a654);
   font-family: 'Homemade Apple', cursive;
-  color: #4b2e2e;
+  color: #3b1f0b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,62 +57,85 @@ body {
 }
 
 .login-container {
-  background: #f2c6a0;
-  padding: 30px 40px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 320px;
+  background: #fff3e6;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(251, 196, 144, 0.4);
+  width: 360px;
   text-align: center;
+  border: 2px solid #f7a654;
+  transition: box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+  box-shadow: 0 12px 28px rgba(251, 196, 144, 0.7);
 }
 
 .login-container h2 {
-  margin-bottom: 25px;
-  font-size: 28px;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: normal;
+  letter-spacing: 1.2px;
+  color: #d2691e;
+  text-shadow: 1px 1px 0 #f7a654;
 }
 
 .login-container form label {
   display: block;
   text-align: left;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-size: 18px;
+  color: #a65300;
 }
 
 .login-container form input[type="text"],
 .login-container form input[type="password"] {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 18px;
-  border: 2px solid #c49d79;
-  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 2px solid #f7a654;
+  border-radius: 15px;
   font-family: 'Homemade Apple', cursive;
   font-size: 18px;
   box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.login-container form input[type="text"]:focus,
+.login-container form input[type="password"]:focus {
+  border-color: #d2691e;
+  outline: none;
 }
 
 .login-container form button {
   width: 100%;
-  background-color: #4b2e2e;
+  background-color: #d2691e;
   color: #fff3e6;
   border: none;
-  border-radius: 12px;
-  padding: 12px;
-  font-size: 20px;
+  border-radius: 18px;
+  padding: 14px 0;
+  font-size: 22px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   font-family: 'Homemade Apple', cursive;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(210, 105, 30, 0.5);
 }
 
 .login-container form button:hover {
-  background-color: #7f553f;
+  background-color: #b45300;
+  box-shadow: 0 6px 15px rgba(180, 83, 0, 0.7);
 }
 
 .error-message {
-  color: red;
+  color: #b22222;
   margin-top: 12px;
   font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #fbe6d6;
 }
 
 
-</style>
 
+</style>
+</body>
 </html>
