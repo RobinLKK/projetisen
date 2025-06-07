@@ -146,9 +146,6 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
         <button type="submit">📤 Ajouter médias</button>
     </form>
 </div>
-        <div class="edit-footer">
-            <button type="button" onclick="toggleEdition()">✏️ Terminer l'édition</button>
-        </div>  
 
 
 
