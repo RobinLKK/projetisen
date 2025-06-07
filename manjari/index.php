@@ -194,12 +194,12 @@ if (!$estCouverture) {
     text-align: center;
     margin: 20px auto;
     font-family: Arial, sans-serif;
-    color: orange;
+    color: black;
     font-size: 20px;
     letter-spacing: 0.05em;
     user-select: none;
 ">
-    Développé par Rob1 et écrit par Xam
+    <strong>Développé par Rob1 et écrit par Xam</strong>
 </footer>
 
 
