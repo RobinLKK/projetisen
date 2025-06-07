@@ -180,7 +180,7 @@ input[type="file"] {
 #bouton-modifier {
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     z-index: 1000;
     background-color: #f2c6a0;
     border: 1px solid #c49d79;
