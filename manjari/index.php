@@ -80,6 +80,7 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 </head>
 <body><div class="journal">
     <div class="page gauche">
+        <h2>Jour <?= $jour ?></h2>
 
         <?php if ($entry && empty(trim($entry['texte']))): ?>
             <!-- Si le texte est vide → formulaire direct -->
