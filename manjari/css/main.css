@@ -40,32 +40,49 @@ body {
     z-index: 10;
 }
 
-
 .page {
     width: 50%;
     padding: 20px;
     box-sizing: border-box;
+    display: flex;          /* active flex */
+    flex-direction: column; /* empile en colonne */
 }
 
+
 .page.gauche {
-    border-right: none; /* supprime la bordure décalante */
+    border-right: none; /* bordure supprimée, la ligne est gérée par ::before */
     font-family: 'Homemade Apple', cursive;
     font-size: 19px;
+    justify-content: flex-start; /* commence en haut */
 }
+
+.page.gauche p {
+    flex-grow: 1;    /* le texte prend toute la hauteur possible */
+    margin: 0;       /* supprime marges inutiles */
+    max-width: 95%;  /* ajuste pour ne pas toucher la ligne */
+}
+
+
 
 .page.droite {
     position: relative;
     font-family: 'Homemade Apple', cursive;
     font-size: 16px;
     min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centre médias horizontalement */
 }
+
+
 
 .page.droite img,
 .page.droite video,
 .page.droite audio {
-    width: 100%;
+    width: 75%;          /* réduit un peu la largeur des médias */
     margin-bottom: 15px;
     border-radius: 8px;
+    display: block;
 }
 
 .controls {
