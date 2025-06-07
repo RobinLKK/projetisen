@@ -44,9 +44,8 @@ body {
     width: 50%;
     padding: 20px;
     box-sizing: border-box;
-    display: flex;          /* active flex */
-    flex-direction: column; /* empile en colonne */
 }
+
 
 
 .page.gauche {
@@ -56,12 +55,12 @@ body {
     justify-content: flex-start; /* commence en haut */
 }
 
-.page.gauche p {
-    flex-grow: 1;    /* le texte prend toute la hauteur possible */
-    margin: 0;       /* supprime marges inutiles */
-    max-width: 95%;  /* ajuste pour ne pas toucher la ligne */
-}
 
+
+.page.gauche p {
+    max-width: 95%;    /* Laisse un petit espace avant la ligne centrale */
+    margin: 0;
+}
 
 
 .page.droite {
@@ -79,10 +78,10 @@ body {
 .page.droite img,
 .page.droite video,
 .page.droite audio {
-    width: 75%;          /* réduit un peu la largeur des médias */
-    margin-bottom: 15px;
-    border-radius: 8px;
+    max-width: 90%;   /* Laisse un petit espace après la ligne centrale */
+    margin: 0 auto 15px auto; /* Centre horizontalement et marge en bas */
     display: block;
+    border-radius: 8px;
 }
 
 .controls {
