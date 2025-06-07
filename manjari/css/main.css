@@ -233,3 +233,16 @@ input[type="file"] {
     background-color: #eaa980;
     transform: scale(1.05);
 }
+
+
+a {
+  color: inherit;       /* hérite de la couleur du parent */
+  text-decoration: none; /* supprime le soulignement */
+  cursor: pointer;       /* optionnel : affiche la main au survol */
+}
+
+/* Optionnel : ajouter un effet au survol */
+a:hover {
+  text-decoration: underline; /* soulignement au hover */
+  color: #eaa980;             /* ou une autre couleur */
+}
