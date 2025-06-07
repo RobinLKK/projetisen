@@ -107,7 +107,7 @@ $jours_disponibles = array_unique(array_merge([0], $jours_disponibles));
     <?php if ($estCouverture): ?>
             <!-- Affichage spécial couverture -->
             <h1>Journal intime de Manjari Paswan</h1>
-            <img src="media/couverture.jpg" alt="Couverture Journal" style="width:100%; border-radius:12px;">
+            <img src="bg/cow.jpg" alt="Couverture Journal" style="width:100%; border-radius:12px;">
             <p style="text-align:center; margin-top:20px;">Bienvenue dans le journal intime. Cliquez sur "Jour suivant" pour commencer.</p>
     <?php else: ?>
             <h2>Jour <?= $jour ?> de Manjari Paswan</h2>
