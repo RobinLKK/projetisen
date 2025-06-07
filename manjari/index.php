@@ -91,9 +91,9 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
             <p><?= nl2br(htmlspecialchars($entry['texte'])) ?></p>
 
             <!-- Bouton pour afficher le formulaire d'édition -->
-            <div style="text-align:right; margin-top: 10px;">
+            <!-- <div style="text-align:right; margin-top: 10px;">
                 <button onclick="document.getElementById('form-edit-texte').style.display = 'block'">✏️ Modifier le texte</button>
-            </div>
+            </div> -->
 
             <!-- Formulaire d'édition caché -->
             <form id="form-edit-texte" method="POST" action="traitement/sauver_page.php" style="display:none">
@@ -129,27 +129,26 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 
 <!-- Conteneur pour tout ce qui est édition -->
 <div class="edit-bar">
-    <!-- Bouton Modifier -->
-<div class="edit-toggle" style="text-align:right; margin-top: 20px;">
+    <!-- Bouton Modifier --><!-- Boîte d’édition fixe en bas à droite -->
+<div class="edit-footer">
     <button type="button" onclick="toggleEdition()">✏️ Modifier</button>
 </div>
 
-<!-- Le panneau qui contient tout ce qu’on veut afficher en mode édition -->
+<!-- Ce qui s’affiche en mode édition -->
 <div id="edition-panel" class="edition-panel">
-    <!-- Bouton modifier texte -->
     <div style="margin-bottom: 10px;">
-        <button type="button" onclick="document.getElementById('form-edit-texte').style.display = 'block';">
-            📝 Modifier le texte
-        </button>
+        <button type="button" onclick="document.getElementById('form-edit-texte').style.display = 'block'">📝 Modifier le texte</button>
     </div>
 
-    <!-- Formulaire ajout médias -->
     <form id="form-media" action="traitement/ajouter_media.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="jour" value="<?= $jour ?>">
         <input type="file" name="medias[]" id="fichier" multiple accept="image/*,video/*,audio/*">
         <button type="submit">📤 Ajouter médias</button>
     </form>
 </div>
+        <div class="edit-footer">
+            <button type="button" onclick="toggleEdition()">✏️ Terminer l'édition</button>
+        </div>  
 
 
 
