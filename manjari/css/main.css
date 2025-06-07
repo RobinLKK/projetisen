@@ -22,6 +22,23 @@ body {
 
 
 
+.journal::before {
+    content: "";
+    position: absolute;
+    top: 20px;    /* même que padding vertical */
+    bottom: 20px;
+    left: 50%;
+    width: 2px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #c49d79,
+        #c49d79 2px,
+        transparent 2px,
+        transparent 6px
+    );
+    transform: translateX(-50%);
+    z-index: 10;
+}
 
 
 .page {
