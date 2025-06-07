@@ -80,12 +80,7 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 </head>
 <body><div class="journal">
     <div class="page gauche">
-        <h2>Jour <?= $jour ?></h2>
-        <?php if ($precedent): ?>
-    <div class="controls">
-        <button onclick="changerJour(<?= $precedent ?>)">⟵ Jour précédent</button>
-    </div>
-<?php endif; ?>
+
         <?php if ($entry && empty(trim($entry['texte']))): ?>
             <!-- Si le texte est vide → formulaire direct -->
             <form method="POST" action="traitement/sauver_page.php">
@@ -116,11 +111,6 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
     </div>
 
     <div class="page droite">
-        <?php if ($suivant): ?>
-    <div class="controls">
-        <button onclick="changerJour(<?= $suivant ?>)">Jour suivant ⟶</button>
-    </div>
-<?php endif; ?>
         <?php foreach ($entry['media'] ?? [] as $media): ?>
             <div class="media-container">
                 <?php if ($media['type'] === 'image'): ?>
@@ -167,16 +157,21 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 
 <!-- Navigation -->
 <div class="controls">
-    <?php
-        $indexActuel = array_search($jour, $jours_disponibles);
-        $precedent = $jours_disponibles[$indexActuel - 1] ?? null;
-        $suivant = $jours_disponibles[$indexActuel + 1] ?? null;
-    ?>
     <?php if ($precedent): ?>
         <button onclick="changerJour(<?= $precedent ?>)">⟵ Jour précédent</button>
     <?php endif; ?>
+
     <?php if ($suivant): ?>
         <button onclick="changerJour(<?= $suivant ?>)">Jour suivant ⟶</button>
+    <?php endif; ?>
+
+    <?php
+        $dernierJour = !empty($jours_disponibles) ? max($jours_disponibles) : 0;
+        if ($jour === $dernierJour):
+    ?>
+        <form method="POST" action="traitement/ajouter_page.php" style="display:inline;">
+            <button type="submit">➕ Ajouter une page</button>
+        </form>
     <?php endif; ?>
 </div>
 

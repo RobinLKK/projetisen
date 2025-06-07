@@ -45,28 +45,19 @@ body {
     border-radius: 8px;
 }
 
-/* .controls {
+.controls {
     display: flex;
     justify-content: center;
-    margin: 40px 0 10px 0;
-    gap: 20px;
-} */
-
-.page.gauche > .controls {
-    text-align: left;
-    display: flex;
-    justify-content: center;
-    margin: 40px 0 10px 0;
+    align-items: center;
+    margin: 40px auto 20px auto;
     gap: 20px;
 }
 
-.page.droite > .controls {
-    text-align: right;
-    display: flex;
-    justify-content: center;
-    margin: 40px 0 10px 0;
-    gap: 20px;
+.controls form {
+    display: inline;
 }
+
+
 
 
 .controls button {
