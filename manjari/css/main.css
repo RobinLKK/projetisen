@@ -72,3 +72,29 @@ body {
 #media-upload.dragover {
     background-color: #fff0d5;
 }
+
+
+.media-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.media-container img,
+.media-container video,
+.media-container audio {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.delete-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #ff4b4b;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px 8px;
+}

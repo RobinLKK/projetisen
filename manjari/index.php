@@ -124,7 +124,7 @@ if (in_array($jour, $jours_json)) {
 
 
 <!-- Navigation -->
-<div class="controls">
+<div class="controls" style="text-align:center; margin-top: 30px;">
     <?php if ($jour > min($jours_disponibles)): ?>
         <button onclick="changerJour(<?= $jour - 1 ?>)">⟵ Jour précédent</button>
     <?php endif; ?>
@@ -133,14 +133,21 @@ if (in_array($jour, $jours_json)) {
     <?php endif; ?>
 </div>
 
+
 <!-- Ajouter une page -->
-<?php if ($jour === max($jours_disponibles)): ?>
+<?php
+$dernierJour = max($jours_disponibles);
+$prochainJour = $dernierJour + 1;
+if ($jour === $dernierJour):
+?>
     <div class="controls">
         <form method="POST" action="traitement/ajouter_page.php" style="display:inline;">
+            <input type="hidden" name="jour" value="<?= $prochainJour ?>">
             <button type="submit">➕ Ajouter une page</button>
         </form>
     </div>
 <?php endif; ?>
+
 
 <script src="js/main.js"></script>
 

@@ -28,3 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+function toggleEdition() {
+    const panel = document.getElementById('edition-panel');
+    const deleteButtons = document.querySelectorAll('.delete-button');
+
+    if (panel && deleteButtons.length > 0) {
+        const isHidden = panel.style.display === 'none' || panel.style.display === '';
+        panel.style.display = isHidden ? 'block' : 'none';
+        deleteButtons.forEach(btn => btn.style.display = isHidden ? 'inline-block' : 'none');
+    }
+}
+
