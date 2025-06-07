@@ -38,6 +38,11 @@ if ($jour === 0) {
     $stmt = $pdo->query("SELECT jour FROM journal");
     $jours_bdd = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+
+    $suivant = !empty($jours_bdd) ? min($jours_bdd) : null; // Le plus petit jour dispo, souvent 1
+$dernierJour = !empty($jours_bdd) ? max($jours_bdd) : 0;
+$entry = null; // Pas de contenu pour la couverture
+
     // 6. Fusionner tous les jours disponibles
     $jours_disponibles = array_unique(array_merge($jours_json, $jours_bdd));
     sort($jours_disponibles);
