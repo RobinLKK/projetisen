@@ -196,11 +196,11 @@ $jours_disponibles = array_unique(array_merge([0], $jours_disponibles));
 
 <!-- Navigation -->
 <div class="controls">
-    <?php if ($precedent): ?>
+    <?php if ($precedent !== null): ?>
         <button onclick="changerJour(<?= $precedent ?>)">⟵ Jour précédent</button>
     <?php endif; ?>
 
-    <?php if ($suivant): ?>
+    <?php if ($suivant !== null): ?>
         <button onclick="changerJour(<?= $suivant ?>)">Jour suivant ⟶</button>
     <?php endif; ?>
 
@@ -209,8 +209,8 @@ $jours_disponibles = array_unique(array_merge([0], $jours_disponibles));
             <button type="submit">➕ Ajouter une page</button>
         </form>
     <?php endif; ?>
-
 </div>
+
 
 
 <script src="js/main.js"></script>
