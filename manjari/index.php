@@ -77,7 +77,11 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 <body><div class="journal">
     <div class="page gauche">
         <h2>Jour <?= $jour ?></h2>
-
+        <?php if ($precedent): ?>
+    <div class="controls">
+        <button onclick="changerJour(<?= $precedent ?>)">⟵ Jour précédent</button>
+    </div>
+<?php endif; ?>
         <?php if ($entry && empty(trim($entry['texte']))): ?>
             <!-- Si le texte est vide → formulaire direct -->
             <form method="POST" action="traitement/sauver_page.php">
@@ -108,6 +112,11 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
     </div>
 
     <div class="page droite">
+        <?php if ($suivant): ?>
+    <div class="controls">
+        <button onclick="changerJour(<?= $suivant ?>)">Jour suivant ⟶</button>
+    </div>
+<?php endif; ?>
         <?php foreach ($entry['media'] ?? [] as $media): ?>
             <div class="media-container">
                 <?php if ($media['type'] === 'image'): ?>
