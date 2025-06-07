@@ -89,7 +89,7 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 <body>
 <div class="journal">
     <div class="page gauche">
-        <h2>Jour <?= $jour ?></h2>
+        <h2>Jour <?= $jour ?> de Manjari Paswan</h2>
 
         <?php if ($entry && empty(trim($entry['texte']))): ?>
             <!-- Si le texte est vide → formulaire direct -->
@@ -180,11 +180,12 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
         <button onclick="changerJour(<?= $suivant ?>)">Jour suivant ⟶</button>
     <?php endif; ?>
 
-    <?php if ($jour === $dernierJour): ?>
+    <?php if ($jour === $dernierJour && isset($_SESSION['user_id'])): ?>
         <form method="POST" action="traitement/ajouter_page.php" style="display:inline;">
             <button type="submit">➕ Ajouter une page</button>
         </form>
     <?php endif; ?>
+
 </div>
 
 
