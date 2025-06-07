@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // index.php
 require_once 'db.php'; // ← Inclut la connexion PDO à la BDD
 
@@ -143,7 +145,11 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 <div class="edit-bar">
     <!-- Bouton Modifier --><!-- Boîte d’édition fixe en bas à droite -->
 <div class="edit-footer">
+<?php if (isset($_SESSION['user_id'])): ?>
     <button type="button" id="bouton-modifier" onclick="toggleEdition()">✏️ Modifier</button>
+<?php else: ?>
+    <p><a href="login.php">Se connecter pour modifier</a></p>
+<?php endif; ?>
 </div>
 
 <!-- Ce qui s’affiche en mode édition -->

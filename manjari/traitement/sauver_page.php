@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('HTTP/1.1 403 Forbidden');
+    exit('Accès refusé');
+}
+
 require_once '../db.php'; // ← car db.php est dans la racine
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
