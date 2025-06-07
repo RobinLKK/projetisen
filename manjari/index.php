@@ -27,6 +27,9 @@ $jours_bdd = $stmt->fetchAll(PDO::FETCH_COLUMN);
 // 6. Fusionner tous les jours disponibles
 $jours_disponibles = array_unique(array_merge($jours_json, $jours_bdd));
 $dernierJour = !empty($jours_disponibles) ? max($jours_disponibles) : 0;
+var_dump($jours_disponibles);
+var_dump($jour);
+var_dump($dernierJour);
 
 sort($jours_disponibles);
 // 6bis. Déterminer le jour précédent et suivant
@@ -95,6 +98,7 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
         <?php elseif ($entry): ?>
             <!-- Texte affiché -->
             <p><?= nl2br(htmlspecialchars($entry['texte'])) ?></p>
+            
 
             <!-- Bouton pour afficher le formulaire d'édition -->
             <!-- <div style="text-align:right; margin-top: 10px;">
