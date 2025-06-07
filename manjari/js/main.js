@@ -29,14 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 function toggleEdition() {
     const panel = document.getElementById("edition-panel");
-    panel.style.display = (panel.style.display === "none" || panel.style.display === "") ? "block" : "none";
-
     const deleteButtons = document.querySelectorAll(".delete-button");
+
+    // On toggle la classe .visible pour l'animation
+    panel.classList.toggle("visible");
+
+    // Affichage ou non des boutons ❌ en fonction de l’état du panneau
+    const isVisible = panel.classList.contains("visible");
     deleteButtons.forEach(btn => {
-        btn.style.display = (panel.style.display === "block") ? "inline" : "none";
+        btn.style.display = isVisible ? "inline" : "none";
     });
 }
 

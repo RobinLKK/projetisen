@@ -74,23 +74,34 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
     <meta name="author" content="Rob1, Xam">
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
 </head>
-<body>
-<div class="journal">
+<body><div class="journal">
     <div class="page gauche">
         <h2>Jour <?= $jour ?></h2>
+
         <?php if ($entry && empty(trim($entry['texte']))): ?>
+            <!-- Si le texte est vide → formulaire direct -->
             <form method="POST" action="traitement/sauver_page.php">
                 <input type="hidden" name="jour" value="<?= $jour ?>">
                 <textarea name="texte" rows="10" cols="50" required></textarea><br>
                 <button type="submit">💾 Enregistrer</button>
             </form>
+
         <?php elseif ($entry): ?>
+            <!-- Texte affiché -->
             <p><?= nl2br(htmlspecialchars($entry['texte'])) ?></p>
+
+            <!-- Bouton pour afficher le formulaire d'édition -->
+            <div style="text-align:right; margin-top: 10px;">
+                <button onclick="document.getElementById('form-edit-texte').style.display = 'block'">✏️ Modifier le texte</button>
+            </div>
+
+            <!-- Formulaire d'édition caché -->
             <form id="form-edit-texte" method="POST" action="traitement/sauver_page.php" style="display:none">
                 <input type="hidden" name="jour" value="<?= $jour ?>">
                 <textarea name="texte" rows="10" cols="50"><?= htmlspecialchars($entry['texte']) ?></textarea><br>
                 <button type="submit">💾 Sauvegarder</button>
             </form>
+
         <?php else: ?>
             <p>Rien écrit ce jour-là...</p>
         <?php endif; ?>
@@ -115,15 +126,20 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
             </div>  
         <?php endforeach; ?>
 
-        <div id="edition-panel">
-            <form id="form-media" action="traitement/ajouter_media.php" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="jour" value="<?= $jour ?>">
-                <input type="file" name="medias[]" id="fichier" multiple accept="image/*,video/*,audio/*">
-                <button type="submit">📤 Ajouter médias</button>
-            </form>
-        </div>
-        <div class="edit-toggle" style="text-align:right;">
+        
+<!-- Conteneur pour tout ce qui est édition -->
+<div class="edit-bar">
+    <!-- Bouton Modifier -->
     <button onclick="toggleEdition()">✏️ Modifier</button>
+
+    <!-- Formulaire d’ajout médias (masqué par défaut) -->
+    <div id="edition-panel" style="display: none;">
+        <form id="form-media" action="traitement/ajouter_media.php" method="POST" enctype="multipart/form-data" style="display: flex; align-items: center; gap: 10px;">
+            <input type="hidden" name="jour" value="<?= $jour ?>">
+            <input type="file" name="medias[]" id="fichier" multiple accept="image/*,video/*,audio/*">
+            <button type="submit">📤 Ajouter médias</button>
+        </form>
+    </div>
 </div>
 
     </div>
@@ -145,13 +161,17 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 </div>
 
 <!-- Ajouter une page -->
-<?php if ($jour === max($jours_disponibles)): ?>
+<?php
+    $dernierJour = !empty($jours_disponibles) ? max($jours_disponibles) : 0;
+    if ($jour === $dernierJour):
+?>
     <div class="controls">
         <form method="POST" action="traitement/ajouter_page.php" style="display:inline;">
             <button type="submit">➕ Ajouter une page</button>
         </form>
     </div>
 <?php endif; ?>
+
 
 <script src="js/main.js"></script>
 </body>
