@@ -75,31 +75,53 @@ if (in_array($jour, $jours_json)) {
             <p>Rien écrit ce jour-là...</p>
         <?php endif; ?>
     </div>
+<div class="page droite">
+<?php if (!empty($entry['media'])): ?>
+    <?php foreach ($entry['media'] as $media): ?>
+        <div class="media-container">
+            <?php if ($media['type'] === 'image'): ?>
+                <img src="<?= htmlspecialchars($media['src']) ?>" alt="media">
+            <?php elseif ($media['type'] === 'video'): ?>
+                <video controls src="<?= htmlspecialchars($media['src']) ?>"></video>
+            <?php elseif ($media['type'] === 'audio'): ?>
+                <audio controls src="<?= htmlspecialchars($media['src']) ?>"></audio>
+            <?php endif; ?>
 
-    <div class="page droite">
-        <?php if ($entry && isset($entry['media'])): ?>
-            <?php foreach ($entry['media'] as $media): ?>
-                <?php if ($media['type'] === 'image'): ?>
-                    <img src="<?= htmlspecialchars($media['src']) ?>" alt="media">
-                <?php elseif ($media['type'] === 'video'): ?>
-                    <video controls src="<?= htmlspecialchars($media['src']) ?>"></video>
-                <?php elseif ($media['type'] === 'audio'): ?>
-                    <audio controls src="<?= htmlspecialchars($media['src']) ?>"></audio>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        <?php endif; ?>
+            <!-- ❌ bouton suppression, masqué par défaut -->
+            <form method="POST" action="traitement/supprimer_media.php" class="delete-media-form">
+                <input type="hidden" name="src" value="<?= htmlspecialchars($media['src']) ?>">
+                <input type="hidden" name="jour" value="<?= $jour ?>">
+                <button type="submit" class="delete-button" style="display: none;">❌</button>
+            </form>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
 
-        <!-- Ajout de médias -->
+
+    <div class="edit-toggle">
+        <button onclick="toggleEdition()">✏️ Modifier</button>
+    </div>
+
+    <!-- Ajout de médias -->
+    <div id="edition-panel" style="display: none; margin-top: 20px;">
+        <!-- Bouton modifier texte -->
+        <div style="margin-bottom: 10px;">
+            <button onclick="document.getElementById('form-edit-texte').style.display='block'">📝 Modifier le texte</button>
+        </div>
+
+        <!-- Formulaire ajout médias -->
         <div id="media-upload">
             <form id="form-media" action="traitement/ajouter_media.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="jour" value="<?= $jour ?>">
-                <label for="fichier">➕ Ajouter des médias :</label><br><br>
+                <label for="fichier">📂 Ajouter des médias :</label><br><br>
                 <input type="file" name="medias[]" id="fichier" multiple accept="image/*,video/*,audio/*"><br><br>
                 <button type="submit">📤 Envoyer</button>
             </form>
         </div>
     </div>
-</div>
+</div> <!-- fin de .page droite -->
+
+
 
 <!-- Navigation -->
 <div class="controls">
