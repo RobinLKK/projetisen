@@ -148,7 +148,7 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 <?php if (isset($_SESSION['user_id'])): ?>
     <button type="button" id="bouton-modifier" onclick="toggleEdition()">✏️ Modifier</button>
 <?php else: ?>
-    <p><a href="login.php">Se connecter pour modifier</a></p>
+    <p><a href="login.php" id="bouton-modifier" >Se connecter pour modifier</a></p>
 <?php endif; ?>
 </div>
 
