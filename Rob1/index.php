@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </script>
 
+<div id="song-info">🎵 Khali - PLM Deathrow</div>
 
 </body>
 </html>

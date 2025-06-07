@@ -362,3 +362,21 @@ h1 {
     box-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
     border: none;
 }
+
+
+
+
+#song-info {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 242, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.95em;
+    color: #00f2ff;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 0 8px #00f2ff;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+}
