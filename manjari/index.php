@@ -7,6 +7,9 @@ require_once 'db.php'; // ← Inclut la connexion PDO à la BDD
 // 1. Jour à afficher
 $jour = isset($_GET['jour']) ? (int)$_GET['jour'] : 0;
 
+$precedent = null;
+$suivant = null;
+$dernierJour = null;
 
 $estCouverture = false;  // valeur par défaut
 // Si le jour est 0, on affiche la couverture
