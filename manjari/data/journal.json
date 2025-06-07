@@ -1,0 +1,16 @@
+{
+  "jour_1": {
+    "texte": "Aujourd’hui j’ai vu une vache avec un chapeau ! Elle était trop mignonne 🐮💖",
+    "media": [
+      { "type": "image", "src": "medias/jour1/vache-chapeau.jpg" },
+      { "type": "audio", "src": "medias/jour1/mugissement.mp3" }
+    ]
+  },
+  "jour_2": {
+    "texte": "J’ai dessiné une ferme remplie de vaches. J’aimerais y vivre un jour 🏡🐄✨",
+    "media": [
+      { "type": "image", "src": "medias/jour2/dessin-ferme.jpg" },
+      { "type": "video", "src": "medias/jour2/mini-clip.mp4" }
+    ]
+  }
+}
