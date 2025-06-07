@@ -87,7 +87,8 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
     <meta name="author" content="Rob1, Xam">
     <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
 </head>
-<body><div class="journal">
+<body>
+<div class="journal">
     <div class="page gauche">
         <h2>Jour <?= $jour ?></h2>
 
@@ -140,7 +141,7 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
             </div>  
         <?php endforeach; ?>
 
-
+</div>
 <!-- Conteneur pour tout ce qui est édition -->
 <div class="edit-bar">
     <!-- Bouton Modifier --><!-- Boîte d’édition fixe en bas à droite -->
