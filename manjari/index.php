@@ -130,17 +130,28 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
 <!-- Conteneur pour tout ce qui est édition -->
 <div class="edit-bar">
     <!-- Bouton Modifier -->
-<button type="button" onclick="toggleEdition()">✏️ Modifier</button>
-
-    <!-- Formulaire d’ajout médias (masqué par défaut) -->
-    <div id="edition-panel" style="display: none;">
-        <form id="form-media" action="traitement/ajouter_media.php" method="POST" enctype="multipart/form-data" style="display: flex; align-items: center; gap: 10px;">
-            <input type="hidden" name="jour" value="<?= $jour ?>">
-            <input type="file" name="medias[]" id="fichier" multiple accept="image/*,video/*,audio/*">
-            <button type="submit">📤 Ajouter médias</button>
-        </form>
-    </div>
+<div class="edit-toggle" style="text-align:right; margin-top: 20px;">
+    <button type="button" onclick="toggleEdition()">✏️ Modifier</button>
 </div>
+
+<!-- Le panneau qui contient tout ce qu’on veut afficher en mode édition -->
+<div id="edition-panel" class="edition-panel">
+    <!-- Bouton modifier texte -->
+    <div style="margin-bottom: 10px;">
+        <button type="button" onclick="document.getElementById('form-edit-texte').style.display = 'block';">
+            📝 Modifier le texte
+        </button>
+    </div>
+
+    <!-- Formulaire ajout médias -->
+    <form id="form-media" action="traitement/ajouter_media.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="jour" value="<?= $jour ?>">
+        <input type="file" name="medias[]" id="fichier" multiple accept="image/*,video/*,audio/*">
+        <button type="submit">📤 Ajouter médias</button>
+    </form>
+</div>
+
+
 
     </div>
 </div>
