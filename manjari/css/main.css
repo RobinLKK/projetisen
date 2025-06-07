@@ -49,38 +49,31 @@ body {
 
 
 .page.gauche {
-    width: 58%;
+    width: 68%;
     border-right: none;
     font-family: 'Homemade Apple', cursive;
     font-size: 19px;
-    padding-right: 15px; /* un peu moins que 20 */
+    padding-right: 25px; /* un peu moins que 20 */
 }
 
 .page.droite {
-    width: 42%;
-    position: relative;
-    font-family: 'Homemade Apple', cursive;
-    font-size: 16px;
-    min-height: 600px;
-    padding-left: 15px;
-}
-
-.page.droite {
+    width: 40%; /* un peu moins large que 42% */
+    padding-left: 25px; /* un peu plus d'espace à gauche */
     display: flex;
     flex-direction: column;
     align-items: center; /* centre horizontalement */
-    padding-left: 20px; /* ou ajuster si besoin */
 }
-
 .page.droite img,
 .page.droite video,
 .page.droite audio {
-    max-width: 90%; /* limite largeur pour ne pas trop étirer */
+    max-width: 100%; /* permet d’utiliser toute la largeur disponible */
     margin-bottom: 15px;
     border-radius: 8px;
     display: block;
+    /* Si tu veux centrer explicitement au cas où : */
+    margin-left: auto;
+    margin-right: auto;
 }
-
 
 
 .controls {
