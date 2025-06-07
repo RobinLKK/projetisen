@@ -126,11 +126,11 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
             </div>  
         <?php endforeach; ?>
 
-        
+
 <!-- Conteneur pour tout ce qui est édition -->
 <div class="edit-bar">
     <!-- Bouton Modifier -->
-    <button onclick="toggleEdition()">✏️ Modifier</button>
+<button type="button" onclick="toggleEdition()">✏️ Modifier</button>
 
     <!-- Formulaire d’ajout médias (masqué par défaut) -->
     <div id="edition-panel" style="display: none;">
