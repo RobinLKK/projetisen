@@ -201,7 +201,7 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
     letter-spacing: 0.05em;
     user-select: none;
 ">
-    Réalisé par Rob1 (dev) et Xam (texte)
+    Développé par Rob1 et écrit par Xam
 </footer>
 
 
