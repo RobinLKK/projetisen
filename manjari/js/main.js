@@ -31,13 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function toggleEdition() {
-    const panel = document.getElementById('edition-panel');
-    const deleteButtons = document.querySelectorAll('.delete-button');
+    const panel = document.getElementById("edition-panel");
+    panel.style.display = (panel.style.display === "none" || panel.style.display === "") ? "block" : "none";
 
-    if (panel && deleteButtons.length > 0) {
-        const isHidden = panel.style.display === 'none' || panel.style.display === '';
-        panel.style.display = isHidden ? 'block' : 'none';
-        deleteButtons.forEach(btn => btn.style.display = isHidden ? 'inline-block' : 'none');
-    }
+    const deleteButtons = document.querySelectorAll(".delete-button");
+    deleteButtons.forEach(btn => {
+        btn.style.display = (panel.style.display === "block") ? "inline" : "none";
+    });
 }
 

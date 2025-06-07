@@ -84,7 +84,7 @@ if (in_array($jour, $jours_json)) {
                     <input type="hidden" name="jour" value="<?= $jour ?>">
                     <button type="submit" class="delete-button">❌</button>
                 </form>
-            </div>
+            </div>  
         <?php endforeach; ?>
 
         <div id="edition-panel">
@@ -94,8 +94,37 @@ if (in_array($jour, $jours_json)) {
                 <button type="submit">📤 Ajouter médias</button>
             </form>
         </div>
+        <div class="edit-toggle" style="text-align:right;">
+    <button onclick="toggleEdition()">✏️ Modifier</button>
+</div>
+
     </div>
 </div>
+
+<!-- Navigation -->
+<div class="controls">
+    <?php
+        $indexActuel = array_search($jour, $jours_disponibles);
+        $precedent = $jours_disponibles[$indexActuel - 1] ?? null;
+        $suivant = $jours_disponibles[$indexActuel + 1] ?? null;
+    ?>
+    <?php if ($precedent): ?>
+        <button onclick="changerJour(<?= $precedent ?>)">⟵ Jour précédent</button>
+    <?php endif; ?>
+    <?php if ($suivant): ?>
+        <button onclick="changerJour(<?= $suivant ?>)">Jour suivant ⟶</button>
+    <?php endif; ?>
+</div>
+
+<!-- Ajouter une page -->
+<?php if ($jour === max($jours_disponibles)): ?>
+    <div class="controls">
+        <form method="POST" action="traitement/ajouter_page.php" style="display:inline;">
+            <button type="submit">➕ Ajouter une page</button>
+        </form>
+    </div>
+<?php endif; ?>
+
 <script src="js/main.js"></script>
 </body>
 </html>
