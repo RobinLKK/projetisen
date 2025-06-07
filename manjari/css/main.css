@@ -311,3 +311,22 @@ a:hover {
     font-size: 16px;
   }
 }
+
+
+
+
+body.couverture {
+    background: url('../bg/cow.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+body.couverture .journal {
+    background: transparent;
+    box-shadow: none;
+}
+
+body.couverture .page.gauche {
+    font-size: 28px;
+    text-align: center;
+}

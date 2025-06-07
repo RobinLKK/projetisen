@@ -34,6 +34,9 @@ if ($jour === 0) {
     sort($jours_disponibles);
     $jours_disponibles = array_map('intval', $jours_disponibles); // <- conversion en int
 
+    // AJOUTE CETTE LIGNE pour ajouter le jour 0 comme couverture
+$jours_disponibles = array_unique(array_merge([0], $jours_disponibles));
+
     $dernierJour = !empty($jours_disponibles) ? max($jours_disponibles) : 0;
 
 
@@ -42,6 +45,17 @@ if ($jour === 0) {
     $indexActuel = array_search($jour, $jours_disponibles);
     $precedent = $jours_disponibles[$indexActuel - 1] ?? null;
     $suivant = $jours_disponibles[$indexActuel + 1] ?? null;
+
+    
+// 7. Gestion couverture
+if ($jour === 0) {
+    $estCouverture = true;
+    $entry = null; // pas de contenu normal
+} else {
+    $estCouverture = false;
+    // Ton code pour charger $entry via JSON ou BDD (comme avant)
+}
+
 
     // 7. Rediriger si le jour demandé n’existe pas
     if (!in_array($jour, $jours_disponibles)) {
@@ -92,10 +106,12 @@ if ($jour === 0) {
 <body>
     <div class="journal">
     <div class="page gauche">
-        <?php if ($jour === 0): ?>
-            <h2>Couverture du Journal de Manjari Paswan</h2>
-            <p>Bienvenue dans le journal intime de Manjari Paswan. Appuyez sur "Page suivante" pour commencer la lecture.</p>
-        <?php else: ?>
+    <?php if ($estCouverture): ?>
+            <!-- Affichage spécial couverture -->
+            <h1>Journal intime de Manjari Paswan</h1>
+            <img src="media/couverture.jpg" alt="Couverture Journal" style="width:100%; border-radius:12px;">
+            <p style="text-align:center; margin-top:20px;">Bienvenue dans le journal intime. Cliquez sur "Jour suivant" pour commencer.</p>
+    <?php else: ?>
             <h2>Jour <?= $jour ?> de Manjari Paswan</h2>
 
             <?php if ($entry && empty(trim($entry['texte']))): ?>
