@@ -1,38 +1,45 @@
 <?php
 // index.php
-require_once 'db.php';
+require_once 'db.php'; // ← Inclut la connexion PDO à la BDD
 
+// 1. Jour à afficher
 $jour = isset($_GET['jour']) ? (int)$_GET['jour'] : 1;
 
-$data_json = json_decode(file_get_contents('data/journal.json'), true);
-$jours_json = array_map(fn($key) => (int)str_replace('jour_', '', $key), array_keys($data_json));
+// 2. Charger les données du JSON
+$data_json_raw = @file_get_contents('data/journal.json');
+$data_json = json_decode($data_json_raw, true);
 
+// 3. Sécurité : s’assurer que c’est bien un tableau
+if (!is_array($data_json)) {
+    $data_json = [];
+}
+
+// 4. Extraire les jours du JSON
+$jours_json = array_map(
+    fn($key) => (int)str_replace('jour_', '', $key),
+    array_keys($data_json)
+);
+
+// 5. Extraire les jours de la BDD
 $stmt = $pdo->query("SELECT jour FROM journal");
 $jours_bdd = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+// 6. Fusionner tous les jours disponibles
 $jours_disponibles = array_unique(array_merge($jours_json, $jours_bdd));
 sort($jours_disponibles);
 
+// 7. Rediriger si le jour demandé n’existe pas
 if (!in_array($jour, $jours_disponibles)) {
-    $jour = max($jours_disponibles);
-    header("Location: index.php?jour=$jour");
-    exit;
-}
-
-$entryKey = "jour_$jour";
-if (in_array($jour, $jours_json)) {
-    $entry = $data_json[$entryKey] ?? null;
-} else {
-    $stmt = $pdo->prepare("SELECT id, texte FROM journal WHERE jour = ?");
-    $stmt->execute([$jour]);
-    $entry = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($entry) {
-        $stmt = $pdo->prepare("SELECT type, src FROM media WHERE journal_id = ?");
-        $stmt->execute([$entry['id']]);
-        $entry['media'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($jours_disponibles)) {
+        $jour = max($jours_disponibles);
+        header("Location: index.php?jour=$jour");
+        exit;
+    } else {
+        // Si aucun jour n'existe encore, affiche juste un message
+        die("Aucune page de journal n'existe encore.");
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
