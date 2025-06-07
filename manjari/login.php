@@ -26,22 +26,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="fr">
-<head><title>Connexion</title></head>
+<head>
+    <meta charset="UTF-8" />
+    <title>Connexion</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
 <body>
-<h2>Connexion</h2>
-<form method="POST">
-    <label>Utilisateur : <input type="text" name="username" required></label><br>
-    <label>Mot de passe : <input type="password" name="password" required></label><br>
-    <button type="submit">Se connecter</button>
-</form>
-<?php if ($error): ?>
-<p style="color:red"><?= htmlspecialchars($error) ?></p>
-<?php endif; ?>
+<div class="login-container">
+    <h2>Connexion</h2>
+    <form method="POST" action="">
+        <label for="username">Utilisateur :</label>
+        <input id="username" type="text" name="username" required autofocus>
+        
+        <label for="password">Mot de passe :</label>
+        <input id="password" type="password" name="password" required>
+        
+        <button type="submit">Se connecter</button>
+    </form>
+    <?php if ($error): ?>
+        <p class="error-message"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
+</div>
+</body>
 
 
-
-<style>
-/* css/login.css */
+<style>/* css/login.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 
@@ -133,9 +142,4 @@ body {
   font-weight: bold;
   text-shadow: 1px 1px 1px #fbe6d6;
 }
-
-
-
-</style>
-</body>
-</html>
+</style></html>
