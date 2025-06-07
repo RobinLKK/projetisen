@@ -7,8 +7,14 @@ require_once 'db.php'; // ← Inclut la connexion PDO à la BDD
 // 1. Jour à afficher
 $jour = isset($_GET['jour']) ? (int)$_GET['jour'] : 0;
 
+
+$estCouverture = false;  // valeur par défaut
+// Si le jour est 0, on affiche la couverture
+// et on n'affiche pas de texte ou médias
+
 if ($jour === 0) {
-    $entry = null; // Pas de contenu
+    $estCouverture = true;
+    $entry = null;
 } else {
     // 2. Charger les données du JSON
     $data_json_raw = @file_get_contents('data/journal.json');
@@ -46,15 +52,7 @@ $jours_disponibles = array_unique(array_merge([0], $jours_disponibles));
     $precedent = $jours_disponibles[$indexActuel - 1] ?? null;
     $suivant = $jours_disponibles[$indexActuel + 1] ?? null;
 
-    
-// 7. Gestion couverture
-if ($jour === 0) {
-    $estCouverture = true;
-    $entry = null; // pas de contenu normal
-} else {
-    $estCouverture = false;
-    // Ton code pour charger $entry via JSON ou BDD (comme avant)
-}
+
 
 
     // 7. Rediriger si le jour demandé n’existe pas
