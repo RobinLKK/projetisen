@@ -26,6 +26,8 @@ $jours_bdd = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 // 6. Fusionner tous les jours disponibles
 $jours_disponibles = array_unique(array_merge($jours_json, $jours_bdd));
+$dernierJour = !empty($jours_disponibles) ? max($jours_disponibles) : 0;
+
 sort($jours_disponibles);
 // 6bis. Déterminer le jour précédent et suivant
 $indexActuel = array_search($jour, $jours_disponibles);
@@ -166,27 +168,12 @@ if (in_array($jour, $jours_json) && isset($data_json[$entryKey])) {
         <button onclick="changerJour(<?= $suivant ?>)">Jour suivant ⟶</button>
     <?php endif; ?>
 
-    <?php
-        $dernierJour = !empty($jours_disponibles) ? max($jours_disponibles) : 0;
-        if ($jour === $dernierJour):
-    ?>
+    <?php if ($jour === $dernierJour): ?>
         <form method="POST" action="traitement/ajouter_page.php" style="display:inline;">
             <button type="submit">➕ Ajouter une page</button>
         </form>
     <?php endif; ?>
 </div>
-
-<!-- Ajouter une page -->
-<?php
-    $dernierJour = !empty($jours_disponibles) ? max($jours_disponibles) : 0;
-    if ($jour === $dernierJour):
-?>
-    <div class="controls">
-        <form method="POST" action="traitement/ajouter_page.php" style="display:inline;">
-            <button type="submit">➕ Ajouter une page</button>
-        </form>
-    </div>
-<?php endif; ?>
 
 
 <script src="js/main.js"></script>
