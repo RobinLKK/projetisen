@@ -49,30 +49,22 @@ body {
 
 
 .page.gauche {
-    border-right: none; /* bordure supprimée, la ligne est gérée par ::before */
+    width: 58%;
+    border-right: none;
     font-family: 'Homemade Apple', cursive;
     font-size: 19px;
-    justify-content: flex-start; /* commence en haut */
-}
-
-
-
-.page.gauche p {
-    max-width: 95%;    /* Laisse un petit espace avant la ligne centrale */
-    margin: 0;
+    padding-right: 15px; /* un peu moins que 20 */
 }
 
 .page.droite {
+    width: 42%;
     position: relative;
     font-family: 'Homemade Apple', cursive;
     font-size: 16px;
     min-height: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* colle à droite */
-    padding: 20px;
-    box-sizing: border-box;
+    padding-left: 15px;
 }
+
 
 .page.droite img,
 .page.droite video,
