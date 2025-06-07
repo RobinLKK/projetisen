@@ -62,7 +62,6 @@ body {
     margin: 0;
 }
 
-
 .page.droite {
     position: relative;
     font-family: 'Homemade Apple', cursive;
@@ -70,19 +69,20 @@ body {
     min-height: 600px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* centre médias horizontalement */
+    align-items: flex-end; /* colle à droite */
+    padding: 20px;
+    box-sizing: border-box;
 }
-
-
 
 .page.droite img,
 .page.droite video,
 .page.droite audio {
-    max-width: 90%;   /* Laisse un petit espace après la ligne centrale */
-    margin: 0 auto 15px auto; /* Centre horizontalement et marge en bas */
-    display: block;
+    max-width: 100%; /* occupe tout l'espace à droite */
+    margin-bottom: 15px;
     border-radius: 8px;
+    display: block;
 }
+
 
 .controls {
     display: flex;
