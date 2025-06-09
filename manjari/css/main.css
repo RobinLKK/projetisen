@@ -73,7 +73,7 @@ body {
 .page.droite img,
 .page.droite video,
 .page.droite audio {
-    max-width: 100%; /* ne pas dépasser 90% de la largeur de la page droite */
+    max-width: 85%; /* ne pas dépasser 90% de la largeur de la page droite */
     margin-bottom: 15px;
     border-radius: 8px;
     display: block;
